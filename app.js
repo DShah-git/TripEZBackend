@@ -35,7 +35,7 @@ app.route("/pdf").post((req,res)=>{
     });
     
 
-})
+});
 
 
 const userSchema = require('./graphql/users/usersSchema');
