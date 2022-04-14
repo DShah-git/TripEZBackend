@@ -59,7 +59,7 @@ module.exports = {
             throw new Error("No user Found");
         }
 
-        console.log(user.password);
+        
 
         const valid = await bcrypt.compare(loginparams.password,user.password);
         
@@ -92,7 +92,7 @@ module.exports = {
 
     getUsersTrip : async function({userid}){
         const trips = await Trips.find({userId: userid})
-        console.log(trips)
+
        
         if(!trips){
             throw new Error("not any");

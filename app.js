@@ -29,6 +29,29 @@ app.use(
     })
 )
 
+const axios =  require('axios')
+
+app.post('/pdf',(req,res)=>{
+    const APIKey = "cc68NTIxNjoyMjI3OkdOUGtlV1ZoTndpSm5WYko"
+
+    let config = {
+        headers: {
+          "X-API-KEY": APIKey,
+        }
+      }
+
+    axios.post("https://api.apitemplate.io/v1/create?template_id=f2877b2b1ca0b40e&export_type=json&output_html=0&filename=yourtrip",
+    req.body,config).then((result) => {
+        return res.status(200).send(result.data)
+    }).catch((err) => {
+        console.log(err)
+        return res.status(200).send(err)
+    });
+    
+
+})
+
+
 app.listen(process.env.PORT || 3000,console.log("Server Running"))
 
 app.get('/',(req,res)=>res.send('Backend'));
