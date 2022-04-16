@@ -18,7 +18,7 @@ app.use(cors());
 const axios =  require('axios')
 
 app.route("/pdf").post((req,res)=>{
-    const APIKey = "cc68NTIxNjoyMjI3OkdOUGtlV1ZoTndpSm5WYko"
+    const APIKey = "bc54NjgzOTozODY1OlhHOUJhMUN1WHI3VWViVHI"
 
     let config = {
         headers: {
@@ -26,7 +26,7 @@ app.route("/pdf").post((req,res)=>{
         }
       }
 
-    axios.post("https://api.apitemplate.io/v1/create?template_id=f2877b2b1ca0b40e&export_type=json&output_html=0&filename=yourtrip",
+    axios.post(`https://api.apitemplate.io/v1/create?template_id=d3477b2b29447a54&export_type=json&output_html=0&filename=${req.body.tripName}`,
     req.body,config).then((result) => {
         return res.status(200).send(result.data)
     }).catch((err) => {
